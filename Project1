@@ -1,0 +1,97 @@
+using System;
+
+class Tumakov
+{
+    static void Main()
+    {
+        while (true)
+        {
+            string ch;
+            Console.Write("Введите номер задания(lab1,lab2,dz1,dz2) или '-1' чтобы выйти: ");
+            ch = Console.ReadLine();
+            switch (ch)
+            {
+                case "lab1":
+                    lab1();
+                    break;
+                case "lab2":
+                    lab2();
+                    break;
+                case "dz1":
+                    dz1();
+                    break;
+                case "dz2":
+                    dz2();
+                    break;
+                case "-1":
+                    return;
+            }
+        }
+    }
+    static void lab1()
+    {
+        //Лабораторная 2.1. Написать программу, которая спрашивает имя пользователя, и затем приветствует пользователя по имени. (Создать консольное приложение.).
+        Console.WriteLine("Лабораторная 1");
+        Console.Write("Введите ваше имя: ");
+        string name = Console.ReadLine();
+        Console.WriteLine($"Привет, {name}");
+    }
+    static void lab2()
+    {
+        //Лабораторная 2.2. Написать программу, которой на вход подается два целых числа, на выходе – результат деления одного числа на другое. Предусмотреть обработку исключительной ситуации, возникающей приделении числа на ноль.
+        Console.WriteLine("Лабораторная 2");
+        float a, b;
+        Console.Write("Введите первое число: ");
+        a = Convert.ToSingle(Console.ReadLine());
+        Console.Write("Введите второе число: ");
+        b = Convert.ToSingle(Console.ReadLine());
+        if (b != 0)
+        {
+            Console.WriteLine(a / b);
+        }
+        else
+        {
+            Console.WriteLine("На ноль делить нельзя");
+        }
+    }
+    static void dz1()
+    {
+        //Домашнее задание 2.1. Прочитать букву с экрана и вывести на печать следующую за ней букву в алфавитном порядке.
+        Console.WriteLine("Домашнее задание 1");
+        char a;
+        Console.Write("Напишите букву: ");
+        a = Convert.ToChar(Console.ReadLine());
+        int charcode = Convert.ToInt32(a) + 1;
+        a = Convert.ToChar(charcode);
+        Console.WriteLine(a);
+    }
+    static void dz2()
+    {
+        //Домашнее задание 2.2. Написать программу, которая решает квадратное уравнение.Входные данные – коэффициенты уравнения, выходные – найденные корни.
+        Console.WriteLine("Домашнее задание 2");
+        float a, b, c;
+        Console.Write("Напишите первый коэффициент уравнения: ");
+        a = Convert.ToSingle(Console.ReadLine());
+        Console.Write("Напишите второй коэффициент уравнения: ");
+        b = Convert.ToSingle(Console.ReadLine());
+        Console.Write("Напишите третий коэффициент уравнения: ");
+        c = Convert.ToSingle(Console.ReadLine());
+        float disc = (b * b - 4 * a * c);
+        if (disc < 0)
+        {
+            Console.WriteLine("Дискриминант меньше нуля, корней нет");            
+        }
+        else
+        {
+            if (disc == 0)
+            {
+                Console.WriteLine(-b / (2 * a));                
+            }
+            else
+            {
+                Console.WriteLine((-b + Math.Pow(disc, 0.5)) / (2 * a));
+                Console.WriteLine((-b - Math.Pow(disc, 0.5)) / (2 * a));               
+            }
+        } 
+    }
+}
